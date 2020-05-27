@@ -311,7 +311,8 @@ export default {
         var storageRef = firebase.storage().ref(`${this.imageData.name}`).put(this.imageData)
         storageRef.on('state_changed', snapshot => {
           this.uploadValue = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        }, () => {
+        },
+        () => {
         },
         () => {
           this.uploadValue = 100
