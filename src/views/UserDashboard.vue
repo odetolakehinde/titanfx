@@ -28,6 +28,12 @@
                           <v-list-item-subtitle>Plan</v-list-item-subtitle>
                       </v-list-item-content>
                       </v-list-item>
+                      <v-list-item dense two-line>
+                      <v-list-item-content>
+                          <v-list-item-title> <strong>{{user.duration}}</strong></v-list-item-title>
+                          <v-list-item-subtitle>Duration</v-list-item-subtitle>
+                      </v-list-item-content>
+                      </v-list-item>
                   <v-card-actions>
                 <v-btn block small @click="paymentDialog = true" class="white--text" color="#ff0000">Top Up</v-btn>
               </v-card-actions>
@@ -145,6 +151,11 @@
           <v-card>
               <v-card-title>Fund your account</v-card-title>
               <p class="text-center px-3">Transfer money to this account and upload your proof of payment.</p>
+              <p>
+                <span class="subtitle-2 font-weight-bold">First City Monument Bank</span> <br>
+                <span class="subtitle-2 font-weight-bold">2591493017</span> <br>
+                <span class="subtitle-2 font-weight-bold">UGBOKO DAVID PASCAL</span>
+              </p>
               <v-card-text class="text-center px-5">
                 <v-text-field dense outlined v-model="paidAmount" type="number" label="Amount"></v-text-field>
 

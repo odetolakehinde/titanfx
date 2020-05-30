@@ -17,9 +17,10 @@
                     <v-card-text>
                         <p>Name: <strong>{{user.name}}</strong></p>
                         <p>Email: <strong>{{user.email}}</strong></p>
+                        <p>Amount: <strong>&#8358;{{user.amount}}</strong></p>
                         <v-row dense>
-                            <v-col><strong>&#8358;{{user.amount}}</strong> </v-col>
-                            <v-col>{{user.plan}}</v-col>
+                          <v-col><strong>{{user.plan}}</strong> </v-col>
+                          <v-col>{{user.duration}}</v-col>
                         </v-row>
                     </v-card-text>
                     <v-card-actions>
@@ -45,6 +46,7 @@
                   <v-text-field dense outlined v-model="user.amount" type="number" label="Amount"></v-text-field>
 
                   <v-select :items="plans" v-model="user.plan" label="Investment Plan" solo></v-select>
+                  <v-select :items="durations" v-model="user.duration" label="Duration of Plan" solo></v-select>
 
                 </v-card-text>
                 <v-card-actions>
@@ -91,10 +93,23 @@ export default {
         accountNo: ''
       },
       plan: '',
+      duration: '',
       amount: 0
     },
     users: [],
-    plans: ['Monthly plan', '6 months plan']
+    plans: ['Monthly plan', '3-10 months fixed plan'],
+    durations: [
+      '1 month',
+      '2 months',
+      '3 months',
+      '4 months',
+      '5 months',
+      '6 months',
+      '7 months',
+      '8 months',
+      '9 months',
+      '10 months'
+    ]
   }),
   methods: {
     createUser () {
@@ -158,6 +173,7 @@ export default {
             accountNo: ''
           },
           plan: '',
+          duration: '',
           amount: 0
         }
         this.form = true

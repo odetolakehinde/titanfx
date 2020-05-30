@@ -11,7 +11,11 @@
               <v-text-field placeholder="Bank Name" v-model="bankName" solo></v-text-field>
               <v-text-field placeholder="Bank Account Number" v-model="bankAccountNumber" solo></v-text-field>
               <v-select :items="plans" v-model="plan" label="Investment Plan" solo></v-select>
-
+              <v-select :items="durations" v-model="duration" label="Duration of Plan" solo></v-select>
+              <p class="caption font-weight-bold">
+                <span>32% ROI for 3-10 months fixed plan</span> <br>
+                <span>30% ROI for monthly plan</span>
+              </p>
               <v-btn @click="login" :loading="loading" color="#ff0000" large block class="white--text"><span>Create Account</span></v-btn> <br>
               <v-btn @click="SignUp" text large block class="black--text"><span>Login to Account</span></v-btn>
               <v-btn @click="cancel" text large block class="black--text"><span>Or return to homepage</span></v-btn>
@@ -53,7 +57,20 @@ export default {
     bankName: '',
     bankAccountNumber: '',
     plan: '',
-    plans: ['Monthly plan', '6 months plan']
+    plans: ['Monthly plan', '3-10 months fixed plan'],
+    duration: '',
+    durations: [
+      '1 month',
+      '2 months',
+      '3 months',
+      '4 months',
+      '5 months',
+      '6 months',
+      '7 months',
+      '8 months',
+      '9 months',
+      '10 months'
+    ]
   }),
   methods: {
     login () {
@@ -73,7 +90,8 @@ export default {
           phoneNumber: ${this.phoneNumber},
           bankName: ${this.bankName},
           bankAccountNumber: ${this.bankAccountNumber},
-          plan: ${this.plan}
+          plan: ${this.plan},
+          duration: ${this.duration}
         `
         const Http = new XMLHttpRequest()
         const url = 'https://us-central1-titanfx-6ae67.cloudfunctions.net/sendMail?to=' + sendTo + '&subject=' + subject + '&message=' + message
