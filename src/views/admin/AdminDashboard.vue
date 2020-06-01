@@ -11,7 +11,8 @@
                 <v-btn @click="navigate('AdminPayments')" text large block class="black--text"><span> Payment Requests</span></v-btn>
                 <v-btn @click="navigate('AdminWithdrawals')" text large block class="black--text"><span> Withdrawal Requests</span></v-btn> <br>
 
-                <p class="black--text title">Users</p>
+                <p class="black--text title">Users</p> <br>
+                <p class="subtitle-2" v-if="users.length === 0">No Users yet</p>
                 <div v-for="user in users" :key="user.email" class="pb-3">
                     <v-card dense>
                     <v-card-text>
